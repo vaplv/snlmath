@@ -81,10 +81,18 @@ aosq_nlerp(vf4_t from, vf4_t to, vf4_t aaaa)
   return vf4_normalize(vf4_lerp(from, to, aaaa));
 }
 
-SIMD_API vf4_t aosq_slerp(vf4_t from, vf4_t to, vf4_t aaaa);
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+SNLMATH_API vf4_t aosq_slerp(vf4_t from, vf4_t to, vf4_t aaaa);
 
 /* Conversion operations. */
-SIMD_API void aosq_to_aosf33(vf4_t q, struct aosf33* out);
+SNLMATH_API void aosq_to_aosf33(vf4_t q, struct aosf33* out);
+
+#ifdef __cplusplus
+} /* extern "C" */
+#endif
 
 #endif /* AOSQ_H */
 

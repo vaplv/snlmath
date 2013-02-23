@@ -3,10 +3,10 @@
 
 #include <snlsys/snlsys.h>
 
-#if defined(SIMD_SHARED_BUILD)
-  #define SIMD_API EXPORT_SYM
+#if defined(SNLMATH_SHARED_BUILD)
+  #define SNLMATH_API EXPORT_SYM
 #else
-  #define SIMD_API IMPORT_SYM
+  #define SNLMATH_API IMPORT_SYM
 #endif
 
 #ifdef SIMD_SSE2

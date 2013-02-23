@@ -519,10 +519,16 @@ vf4_normalize3(vf4_t v)
 }
 
 /* Trigonometric operations. */
-SIMD_API vf4_t vf4_sin(vf4_t v);
-SIMD_API vf4_t vf4_cos(vf4_t v);
-SIMD_API vf4_t vf4_acos(vf4_t v);
-SIMD_API void vf4_sincos(vf4_t v, vf4_t* restrict s, vf4_t* restrict c);
+#ifdef __cplusplus
+extern "C" {
+#endif
+SNLMATH_API vf4_t vf4_sin(vf4_t v);
+SNLMATH_API vf4_t vf4_cos(vf4_t v);
+SNLMATH_API vf4_t vf4_acos(vf4_t v);
+SNLMATH_API void vf4_sincos(vf4_t v, vf4_t* restrict s, vf4_t* restrict c);
+#ifdef __cplusplus
+} /* extern "C" */
+#endif
 
 static FINLINE vf4_t
 vf4_tan(vf4_t v)

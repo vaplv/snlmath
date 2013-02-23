@@ -6,8 +6,8 @@ file(GLOB SSE_FILES ${SSE_FILES_INC} ${SIMD_FILES_INC} *.c ../regular/*.c)
 
 add_library(snlmath-sse2 SHARED ${SSE_FILES})
 add_library(snlmath-sse3 SHARED ${SSE_FILES})
-set_target_properties(snlmath-sse2 PROPERTIES DEFINE_SYMBOL SIMD_SHARED_BUILD)
-set_target_properties(snlmath-sse3 PROPERTIES DEFINE_SYMBOL SIMD_SHARED_BUILD)
+set_target_properties(snlmath-sse2 PROPERTIES DEFINE_SYMBOL SNLMATH_SHARED_BUILD)
+set_target_properties(snlmath-sse3 PROPERTIES DEFINE_SYMBOL SNLMATH_SHARED_BUILD)
 set_target_properties(snlmath-sse2 PROPERTIES COMPILE_FLAGS -msse2)
 set_target_properties(snlmath-sse3 PROPERTIES COMPILE_FLAGS -msse3)
 

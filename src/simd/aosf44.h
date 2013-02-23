@@ -282,7 +282,13 @@ aosf44_det(const struct aosf44* m)
   return vf4_dot(xyzw, aosf44_row3(m));
 }
 
-SIMD_API vf4_t aosf44_inverse(struct aosf44* out, const struct aosf44* in);
+#ifdef __cplusplus
+extern "C" {
+#endif
+SNLMATH_API vf4_t aosf44_inverse(struct aosf44* out, const struct aosf44* in);
+#ifdef __cplusplus
+} /* extern "C" */
+#endif
 
 static FINLINE vf4_t
 aosf44_invtrans(struct aosf44* out, const struct aosf44* a)
