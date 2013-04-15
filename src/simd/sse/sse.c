@@ -130,6 +130,6 @@ vf4_acos(vf4_t v)
   const vf4_t res = vf4_mul(vf4_madd(hi, absv4, lo), t0);
   const vf4_t mask = vf4_lt(v, vf4_zero());
 
-  return vf4_sel(res, vf4_set1(3.14159265358979323846) - res, mask);
+  return vf4_sel(res, vf4_set1(3.14159265358979323846f) - res, mask);
 }
 

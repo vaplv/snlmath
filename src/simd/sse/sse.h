@@ -156,7 +156,7 @@ vf4_mask(bool x, bool y, bool z, bool w)
 static FINLINE vf4_t
 vf4_true(void)
 {
-  const union { float f; int i; } mask = { .i = 0xFFFFFFFF };
+  const union { float f; unsigned int i; } mask = { .i = 0xFFFFFFFF };
   return vf4_set1(mask.f);
 }
 
@@ -169,27 +169,27 @@ vf4_false(void)
 static FINLINE vf4_t
 vf4_xmask(void)
 {
-  const union { float f; int i; } mask = { .i = 0xFFFFFFFF };
+  const union { float f; unsigned int i; } mask = { .i = 0xFFFFFFFF };
   return vf4_set(mask.f, 0.f, 0.f, 0.f);
 }
 
 static FINLINE vf4_t
 vf4_ymask(void) {
-  const union { float f; int i; } mask = { .i = 0xFFFFFFFF };
+  const union { float f; unsigned int i; } mask = { .i = 0xFFFFFFFF };
   return vf4_set(0.f, mask.f, 0.f, 0.f);
 }
 
 static FINLINE vf4_t
 vf4_zmask(void)
 {
-  const union { float f; int i; } mask = { .i = 0xFFFFFFFF };
+  const union { float f; unsigned int i; } mask = { .i = 0xFFFFFFFF };
   return vf4_set(0.f, 0.f, mask.f, 0.f);
 }
 
 static FINLINE vf4_t
 vf4_wmask(void)
 {
-  const union { float f; int i; } mask = { .i = 0xFFFFFFFF };
+  const union { float f; unsigned int i; } mask = { .i = 0xFFFFFFFF };
   return vf4_set(0.f, 0.f, 0.f, mask.f);
 }
 
@@ -487,7 +487,7 @@ vf4_normalize2(vf4_t v)
 static FINLINE vf4_t
 vf4_sum3(vf4_t v)
 {
-  const union { float f; int i; } m = { .i = 0xFFFFFFFF };
+  const union { float f; unsigned int i; } m = { .i = 0xFFFFFFFF };
   const vf4_t r0 = vf4_and(vf4_set(m.f, m.f, m.f, 0.f), v);
   return vf4_sum(r0);
 }

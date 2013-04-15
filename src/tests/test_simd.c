@@ -6,6 +6,8 @@
 #include <snlsys/snlsys.h>
 #include <math.h>
 
+#define FPI (float)PI
+
 #define EQ_EPS(x, y, eps) (fabsf((x) - (y)) <= (eps))
 #define AOSF33_EQ(m, a, b, c, d, e, f, g, h, i) \
   do { \
@@ -422,53 +424,53 @@ test_vf4(void)
   CHECK(vf4_y(k), 7.5f);
   CHECK(vf4_z(k), 7.f);
 
-  i = vf4_set(PI/2.f, PI/3.f, PI/4.f, PI/6.f);
+  i = vf4_set(FPI/2.f, FPI/3.f, FPI/4.f, FPI/6.f);
   k = vf4_cos(i);
-  CHECK(EQ_EPS(vf4_x(k), cosf(PI/2.f), 1.e-6f), true);
-  CHECK(EQ_EPS(vf4_y(k), cosf(PI/3.f), 1.e-6f), true);
-  CHECK(EQ_EPS(vf4_z(k), cosf(PI/4.f), 1.e-6f), true);
-  CHECK(EQ_EPS(vf4_w(k), cosf(PI/6.f), 1.e-6f), true);
+  CHECK(EQ_EPS(vf4_x(k), cosf(FPI/2.f), 1.e-6f), true);
+  CHECK(EQ_EPS(vf4_y(k), cosf(FPI/3.f), 1.e-6f), true);
+  CHECK(EQ_EPS(vf4_z(k), cosf(FPI/4.f), 1.e-6f), true);
+  CHECK(EQ_EPS(vf4_w(k), cosf(FPI/6.f), 1.e-6f), true);
 
   k = vf4_sin(i);
-  CHECK(EQ_EPS(vf4_x(k), sinf(PI/2.f), 1.e-6f), true);
-  CHECK(EQ_EPS(vf4_y(k), sinf(PI/3.f), 1.e-6f), true);
-  CHECK(EQ_EPS(vf4_z(k), sinf(PI/4.f), 1.e-6f), true);
-  CHECK(EQ_EPS(vf4_w(k), sinf(PI/6.f), 1.e-6f), true);
+  CHECK(EQ_EPS(vf4_x(k), sinf(FPI/2.f), 1.e-6f), true);
+  CHECK(EQ_EPS(vf4_y(k), sinf(FPI/3.f), 1.e-6f), true);
+  CHECK(EQ_EPS(vf4_z(k), sinf(FPI/4.f), 1.e-6f), true);
+  CHECK(EQ_EPS(vf4_w(k), sinf(FPI/6.f), 1.e-6f), true);
 
   vf4_sincos(i, &k, &j);
-  CHECK(EQ_EPS(vf4_x(k), sinf(PI/2.f), 1.e-6f), true);
-  CHECK(EQ_EPS(vf4_y(k), sinf(PI/3.f), 1.e-6f), true);
-  CHECK(EQ_EPS(vf4_z(k), sinf(PI/4.f), 1.e-6f), true);
-  CHECK(EQ_EPS(vf4_w(k), sinf(PI/6.f), 1.e-6f), true);
-  CHECK(EQ_EPS(vf4_x(j), cosf(PI/2.f), 1.e-6f), true);
-  CHECK(EQ_EPS(vf4_y(j), cosf(PI/3.f), 1.e-6f), true);
-  CHECK(EQ_EPS(vf4_z(j), cosf(PI/4.f), 1.e-6f), true);
-  CHECK(EQ_EPS(vf4_w(j), cosf(PI/6.f), 1.e-6f), true);
+  CHECK(EQ_EPS(vf4_x(k), sinf(FPI/2.f), 1.e-6f), true);
+  CHECK(EQ_EPS(vf4_y(k), sinf(FPI/3.f), 1.e-6f), true);
+  CHECK(EQ_EPS(vf4_z(k), sinf(FPI/4.f), 1.e-6f), true);
+  CHECK(EQ_EPS(vf4_w(k), sinf(FPI/6.f), 1.e-6f), true);
+  CHECK(EQ_EPS(vf4_x(j), cosf(FPI/2.f), 1.e-6f), true);
+  CHECK(EQ_EPS(vf4_y(j), cosf(FPI/3.f), 1.e-6f), true);
+  CHECK(EQ_EPS(vf4_z(j), cosf(FPI/4.f), 1.e-6f), true);
+  CHECK(EQ_EPS(vf4_w(j), cosf(FPI/6.f), 1.e-6f), true);
 
-  i = vf4_set(PI/8.f, PI/3.f, PI/4.f, PI/6.f);
+  i = vf4_set(FPI/8.f, FPI/3.f, FPI/4.f, FPI/6.f);
   k = vf4_tan(i);
-  CHECK(EQ_EPS(vf4_x(k), tanf(PI/8.f), 1.e-6f), true);
-  CHECK(EQ_EPS(vf4_y(k), tanf(PI/3.f), 1.e-6f), true);
-  CHECK(EQ_EPS(vf4_z(k), tanf(PI/4.f), 1.e-6f), true);
-  CHECK(EQ_EPS(vf4_w(k), tanf(PI/6.f), 1.e-6f), true);
+  CHECK(EQ_EPS(vf4_x(k), tanf(FPI/8.f), 1.e-6f), true);
+  CHECK(EQ_EPS(vf4_y(k), tanf(FPI/3.f), 1.e-6f), true);
+  CHECK(EQ_EPS(vf4_z(k), tanf(FPI/4.f), 1.e-6f), true);
+  CHECK(EQ_EPS(vf4_w(k), tanf(FPI/6.f), 1.e-6f), true);
 
   k = vf4_acos(vf4_cos(i));
-  CHECK(EQ_EPS(vf4_x(k), PI/8.f, 1.e-6f), true);
-  CHECK(EQ_EPS(vf4_y(k), PI/3.f, 1.e-6f), true);
-  CHECK(EQ_EPS(vf4_z(k), PI/4.f, 1.e-6f), true);
-  CHECK(EQ_EPS(vf4_w(k), PI/6.f, 1.e-6f), true);
+  CHECK(EQ_EPS(vf4_x(k), FPI/8.f, 1.e-6f), true);
+  CHECK(EQ_EPS(vf4_y(k), FPI/3.f, 1.e-6f), true);
+  CHECK(EQ_EPS(vf4_z(k), FPI/4.f, 1.e-6f), true);
+  CHECK(EQ_EPS(vf4_w(k), FPI/6.f, 1.e-6f), true);
 
   k = vf4_asin(vf4_sin(i));
-  CHECK(EQ_EPS(vf4_x(k), PI/8.f, 1.e-6f), true);
-  CHECK(EQ_EPS(vf4_y(k), PI/3.f, 1.e-6f), true);
-  CHECK(EQ_EPS(vf4_z(k), PI/4.f, 1.e-6f), true);
-  CHECK(EQ_EPS(vf4_w(k), PI/6.f, 1.e-6f), true);
+  CHECK(EQ_EPS(vf4_x(k), FPI/8.f, 1.e-6f), true);
+  CHECK(EQ_EPS(vf4_y(k), FPI/3.f, 1.e-6f), true);
+  CHECK(EQ_EPS(vf4_z(k), FPI/4.f, 1.e-6f), true);
+  CHECK(EQ_EPS(vf4_w(k), FPI/6.f, 1.e-6f), true);
 
   k = vf4_atan(vf4_tan(i));
-  CHECK(EQ_EPS(vf4_x(k), PI/8.f, 1.e-6f), true);
-  CHECK(EQ_EPS(vf4_y(k), PI/3.f, 1.e-6f), true);
-  CHECK(EQ_EPS(vf4_z(k), PI/4.f, 1.e-6f), true);
-  CHECK(EQ_EPS(vf4_w(k), PI/6.f, 1.e-6f), true);
+  CHECK(EQ_EPS(vf4_x(k), FPI/8.f, 1.e-6f), true);
+  CHECK(EQ_EPS(vf4_y(k), FPI/3.f, 1.e-6f), true);
+  CHECK(EQ_EPS(vf4_z(k), FPI/4.f, 1.e-6f), true);
+  CHECK(EQ_EPS(vf4_w(k), FPI/6.f, 1.e-6f), true);
 
   i = vf4_set(1.f, 2.f, 3.f, 4.f);
   j = vf4_set(-2.f, -4.f, 3.f, 6.f);
@@ -623,12 +625,12 @@ test_vf4(void)
   CHECK(EQ_EPS(vf4_x(i), 9.053778f, 1.e-5f), true);
   CHECK(EQ_EPS(vf4_y(i), 1.221327f, 1.e-5f), true);
   CHECK(EQ_EPS(vf4_z(i), -2.132386f, 1.e-5f) ||
-        EQ_EPS(vf4_z(i), 2*PI - 2.132386f, 1.e-5f), true);
+        EQ_EPS(vf4_z(i), 2*FPI - 2.132386f, 1.e-5f), true);
   i = vf4_xyz_to_rthetaphi(vf4_set(4.53f, -7.2f, 3.1f, 0.f));
   CHECK(EQ_EPS(vf4_x(i), 9.053778f, 1.e-5f), true);
   CHECK(EQ_EPS(vf4_y(i), 1.221327f, 1.e-5f), true);
   CHECK(EQ_EPS(vf4_z(i), -1.009206f, 1.e-5f) ||
-        EQ_EPS(vf4_z(i), 2*PI - 1.009206f, 1.e-5f), true);
+        EQ_EPS(vf4_z(i), 2*FPI - 1.009206f, 1.e-5f), true);
   i = vf4_xyz_to_rthetaphi(vf4_set(4.53f, 7.2f, -3.1f, 0.f));
   CHECK(EQ_EPS(vf4_x(i), 9.053778f, 1.e-5f), true);
   CHECK(EQ_EPS(vf4_y(i), 1.920264f, 1.e-5f), true);
@@ -641,12 +643,12 @@ test_vf4(void)
   CHECK(EQ_EPS(vf4_x(i), 9.053778f, 1.e-5f), true);
   CHECK(EQ_EPS(vf4_y(i), 1.920264f, 1.e-5f), true);
   CHECK(EQ_EPS(vf4_z(i), -1.009206f, 1.e-5f) ||
-        EQ_EPS(vf4_z(i), 2*PI - 1.009206f, 1.e-5f), true);
+        EQ_EPS(vf4_z(i), 2*FPI - 1.009206f, 1.e-5f), true);
   i = vf4_xyz_to_rthetaphi(vf4_set(-4.53f, -7.2f, -3.1f, 0.f));
   CHECK(EQ_EPS(vf4_x(i), 9.053778f, 1.e-5f), true);
   CHECK(EQ_EPS(vf4_y(i), 1.920264f, 1.e-5f), true);
   CHECK(EQ_EPS(vf4_z(i), -2.132386f, 1.e-5f) ||
-        EQ_EPS(vf4_z(i), 2*PI - 2.132386f, 1.e-5f), true);
+        EQ_EPS(vf4_z(i), 2*FPI - 2.132386f, 1.e-5f), true);
 }
 
 static void
@@ -754,7 +756,7 @@ test_vi4(void)
   CHECK(vi4_z(k), (int)0xFFFFFFFF);
   CHECK(vi4_w(k), (int)0xFFFFFFFF);
 
-  k = vi4_sel(i, j, vi4_set(0xFFFFFFFF, 0x00000000, 0xFFFFFFFF, 0x00000000));
+  k = vi4_sel(i, j, vi4_set(~0, 0, ~0, 0));
   CHECK(vi4_x(k), -2);
   CHECK(vi4_y(k), 2);
   CHECK(vi4_z(k), 3);
@@ -1389,7 +1391,7 @@ test_aosq(void)
   CHECK(vf4_z(q0), 0.f);
   CHECK(vf4_w(q0), 1.f);
 
-  q0 = aosq_set_axis_angle(vf4_set(2.f, 5.f, 1.f, 0.f), vf4_set1(PI*0.3f));
+  q0 = aosq_set_axis_angle(vf4_set(2.f, 5.f, 1.f, 0.f), vf4_set1(FPI*0.3f));
   CHECK(EQ_EPS(vf4_x(q0), 0.907981f, 1.e-6f), true);
   CHECK(EQ_EPS(vf4_y(q0), 2.269953f, 1.e-6f), true);
   CHECK(EQ_EPS(vf4_z(q0), 0.453991f, 1.e-6f), true);
